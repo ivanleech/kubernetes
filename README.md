@@ -38,12 +38,23 @@ kubectl rollout history deployment/second-app-deployment --revision=4
 kubectl rollout undo deployment/second-app-deployment --to-revision=4
 ```
 
-# Volumes - data survives container restarts but not pod restarts
+# Volumes - pod/node dependant
 emptyDir - data is stored on the pod, good for 1 pod projects
 hostPath - data is stored on the host/node, good for 1 node projects
 csi(container storage interface) - can be extended to different cloud provided storage
 
 # Persistent Volumes - pod and node independant
+Will not go down when node goes down
+Requires Persistent Volume Claim -> This will ensure config of volume does not need to be repeated for each pod
+Comparison:
+Volume is useful for single node projects
+Persistent Volume & Persistent Volume Claim is useful for multi node projects
+
+# ConfigMaps - used to store config data
+
+
+
+
 
 
 
