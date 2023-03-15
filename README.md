@@ -15,6 +15,10 @@ docker push <dockerhub_username>/kube-first-app
 docker build -t <dockerhub_username>/kube-data-demo .
 docker push <dockerhub_username>/kube-data-demo
 ```
+### docker compose
+```
+docker-compose up -d --build
+```
 
 # Minikube - required to start kubernetes locally
 ```
