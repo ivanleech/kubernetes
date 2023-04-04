@@ -4,6 +4,12 @@ Sample Kubernetes Project
 ### install Chocolatey and kubernetes-cli using instructions found in below link
 https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
 
+# install kustomize
+```
+curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+sudo mv kustomize /usr/local/bin
+```
+
 # DockerHub - build image and push to dockerhub 
 ```
 docker build -t kube-first-app .
@@ -19,6 +25,7 @@ docker push <dockerhub_username>/kube-data-demo
 ```
 docker-compose up -d --build
 ```
+
 
 # Minikube - required to start kubernetes locally
 ```
@@ -40,6 +47,11 @@ kubectl rollout undo deployment
 kubectl rollout history deployment/second-app-deployment
 kubectl rollout history deployment/second-app-deployment --revision=4
 kubectl rollout undo deployment/second-app-deployment --to-revision=4
+```
+### delete all in current namespace
+```
+kubectl delete all --all --all-namespaces
+kubectl delete daemonsets,replicasets,services,deployments,pods,rc,ingress --all --all-namespaces
 ```
 
 # Volumes - pod/node dependant
